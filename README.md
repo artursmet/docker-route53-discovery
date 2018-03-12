@@ -15,7 +15,7 @@ This package runs as a short living sidecar container, after core service is sta
 
 Example ECS task definition that starts redis with a service discovery
 
-```
+```json
 {
     "executionRoleArn": null,
     "containerDefinitions": [
@@ -63,3 +63,23 @@ Example ECS task definition that starts redis with a service discovery
 
 After service is started, redis container should run and service discovery container should end after updating proper DNS records.
 Selected domain entry will point to **local ip address** of EC2 instance where this service was started.
+
+
+### Requirements
+This container requires `Route53:ChangeResourceRecordSets` IAM permission to be available through ECS instance role.
+
+Example IAM policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowUpdateInternalDNS",
+            "Effect": "Allow",
+            "Action": "route53:ChangeResourceRecordSets",
+            "Resource": "arn:aws:route53:::hostedzone/YOURZONEID"
+        }
+    ]
+}
+```
