@@ -1,3 +1,6 @@
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/artursmet/docker-route53-discovery.svg)](https://hub.docker.com/r/artursmet/docker-route53-discovery/)
+
 ## Simple service discovery for docker-based environment
 
 ### Problem to solve
