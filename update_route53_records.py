@@ -14,7 +14,7 @@ route_53 = boto3.client('route53')
 
 def get_ec2_local_ip():
     data = requests.get("http://169.254.169.254/latest/meta-data/local-ipv4")
-    return data.content
+    return data.text
 
 def update_record(record_name, value):
     route_53.change_resource_record_sets(
