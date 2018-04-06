@@ -83,3 +83,10 @@ Example IAM policy:
     ]
 }
 ```
+
+### Environment variables
+
+* `DNS_ZONE_ID` - ID of private hosted zone
+* `DNS_RECORD_NAME` - name of the record to update
+* `ASSUME_ROLE_ARN` - ARN of role that has to be assumed while querying AWS API (optional)
+* `ROLE_SESSION_NAME` - Name of the session used while assuming role (optional)
